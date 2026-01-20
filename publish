@@ -1,0 +1,3 @@
+# Kör i terminalen
+# quarto render lpg010_stat.qmd
+# quarto publish gh-pages lpg010_stat.qmd

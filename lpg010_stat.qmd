@@ -1,41 +1,42 @@
 ---
 format:
-  revealjs:
-    number-sections: true
-    number-depth: 1
-    incremental: true
-    standalone: true
-    theme: blood
-    margin: 0.01
-    smaller: true
-    scrollable: true
-    slide-number: true
-    link-external-icon: true
-    chalkboard: true
-    logo: img/LO_GU_cen2rNEG.png
-    toc: true
-    toc-title: Agenda
-    toc-depth: 1
-    preview-links: true
-    touch: true
-    multiplex: true
+    typst: default
+    revealjs:
+        number-sections: true
+        number-depth: 1
+        incremental: false
+        standalone: true
+        theme: blood
+        margin: 0.01
+        smaller: true
+        scrollable: true
+        slide-number: true
+        link-external-icon: true
+        chalkboard: true
+        logo: img/LO_GU_cen2rNEG.png
+        toc: true
+        toc-title: Agenda
+        toc-depth: 1
+        preview-links: true
+        touch: true
+        multiplex: true
+        include-in-header:
+            - text: |
+                <style>
+                .reveal .slide-logo {
+                    max-height: unset;
+                    height: 100px;
+                }
+                </style>
 revealjs-plugins:
-  - pointer
-include-in-header:
-  - text: |
-      <style>
-      .reveal .slide-logo {
-        max-height: unset;
-        height: 100px;
-      }
-      </style>
+    - pointer
 title: Hälsovetenskaplig statistik
-subtitle: LÄA110 (V26)
+subtitle: LPG010 (V26)
 institute: Avdelningen för samhällsmedicin och folkhälsa
 author: Erik Bülow
 editor: 
-  markdown: 
-    wrap: 72
+    markdown: 
+        wrap: 72
 ---
 
 # Formalia
@@ -84,30 +85,7 @@ eller epidemiologiska studier.
 Det viktigaste under föreläsningarna kommer att vara de grundläggande
 principerna inom medicinsk statistik och viss vägledning.
 :::
-
-## Föreläsningar
-
-| Föreläsning | Pass | Avsnitt | Titel                |
-|-------------|------|---------|----------------------|
-| 1           | 1    | 1       | Formalia             |
-|             |      | 2       | Intro                |
-|             |      | 3       | Population och urval |
-|             | 2    | 4       | Begrepp              |
-|             |      | 5       | Deskriptiv statistik |
-|             | 3    | 6       | Inferens             |
-| 2           | 1    | 7       | p-värden             |
-|             |      | 8       | Stickprovsstorlek    |
-|             |      | 9       | Multipla test        |
-|             | 2    | 10      | Vanliga test         |
-|             | 3    | 11      | Korrelation          |
-| 3           | 1    | 12      | Regression           |
-|             | 2    | 13      | Kvalitativt utfall   |
-|             |      | 14      | Överlevnadsanalys    |
-|             | 2    | 15      | Datastruktur         |
-|             |      | 16      | Forskningsfrågan     |
-|             |      | 17      | Studie-design        |
-
-## 
+ 
 
 ::: callout-important
 ## Viktigt!
@@ -201,8 +179,8 @@ forskningsfråga.
 ::: fragment
 |           | CVD        | Inte CVD | Totalt |
 |-----------|------------|----------|--------|
-| Stad      | 91 (1,9 %) | 4829     | 4920   |
-| Landsbygd | 64 (1,3 %) | 4901     | 4965   |
+| Landsbygd | 91 (1,9 %) | 4829     | 4920   |
+| Stad      | 64 (1,3 %) | 4901     | 4965   |
 :::
 
 -   Skillnad i andel = $0,5$ `procentenheter`
@@ -226,12 +204,11 @@ Stad/mellanstor stad = samhälle med fler än 10 000 invånare och färre än
 ::: fragment
 |           | CVD               | Totalt      | Förväntat         |
 |-----------|-------------------|-------------|-------------------|
-| Stad      | $45~276~(1,9~\%)$ | $2~447~909$ | $36~572~(1,5~\%)$ |
-| Landsbygd | $54~744~(1,3~\%)$ | $4~246~925$ | $63~449~(1,5~\%)$ |
+| Landsbygd | $45~276~(1,9~\%)$ | $2~447~909$ | $36~572~(1,5~\%)$ |
+| Stad.     | $54~744~(1,3~\%)$ | $4~246~925$ | $63~449~(1,5~\%)$ |
 :::
 
--   8 705 fler fall i stad jmfrt. förväntat om lika risk (45 276 - 36
-    572) 
+-   8 705 fler fall i stad jmfrt. förväntat om lika risk (45276 - 36572)
 -   $\chi^2 = 3315,73$
 -   $P = 0,00000...$
 
@@ -425,7 +402,10 @@ från den del av populationen som är lättillgänglig.
     -   Missing at random (MAR)
         -   rapportering saknas från en vårdenhet
     -   Missing not at random (MNAR)
-        -   Rökare vill inte berätta att de röker \##
+        -   Rökare vill inte berätta att de röker 
+        
+
+##
 
 ::: callout-important
 ## Viktigt!
@@ -452,6 +432,8 @@ från den del av populationen som är lättillgänglig.
 -   Vi undviker komplicerade formler i de flesta fall
 -   Några symboler återkommer dock ofta och kan vara bra att känna till
 :::
+
+---------------
 
 X
 
@@ -836,6 +818,38 @@ sensoriska latenser i höger hand mellan oexponerade (0) och exponerade
 :::
 
 
+# Datastruktur
+
+## Innan analys: Organisera data
+
+I Excel, SPSS eller ett annat program
+
+-   En variabel per kolumn
+-   En individ (t.ex. patient) per rad
+-   Ett variabelvärde per cell
+-   Variabelnamn i första raden
+    -   Helst bara A-Z/a-z, siffror respektive "\_"
+-   Inga tomma rader
+-   Tom cell betyder saknad data (0 och saknad data är två olika saker)
+-   Inga kommentarer i datafilen
+
+## ❌ Fel
+
+![](images/paste-4.png)
+
+## ✅ Rätt!
+
+![](images/paste-5.png)
+[Tidy data](https://vita.had.co.nz/papers/tidy-data.html) är et relevant kocept! 
+
+## Komplexa datakällor
+
+- Om du får många dataset från t ex kvalitetsregister och andra källor kan du behöva kombinera dessa
+- Undvik detta om du inte är taggad på en utmaning/har gott stöd av handledaren/har viss kännedom om datastrukturer 
+- Går till viss del i SPSS men kan motivera att välja t ex R istället?
+
+
+
 
 # Inferens
 
@@ -914,7 +928,7 @@ ggplot(data, aes(x = SampleSize, y = StandardError, color = SD)) +
 -   T ex: Vi har $\bar x = 174$ cm och vi är 95 % säkra på att $\mu$
     ligger mellan 166 och 182 cm.
 -   Vi kan med 95 % säkerhet säga att den verkliga medellängden för
-    läkarstudenterna är mellan 166 och 182 cm.
+    läkarstudenter är mellan 166 och 182 cm.
 -   Varför just 95 %?
 
 [^1]: Om t ex centrala gränsvärdessatsen tillämpas (se senare)
@@ -994,7 +1008,8 @@ vilket kan leda oss till en felaktig slutsats.
 
 ## Parade mätningar
 
--   Vanligtvis tre situationer som ger upphov till parade observationer:
+Vanligtvis tre situationer som ger upphov till parade (icke oberoende) observationer:
+
 -   Mätningar som görs på `samma individ` vid olika tidpunkter, t.ex.
     före och efter behandling
 -   Matchade `fall-kontrollstudier`, för varje behandlad patient hittar
@@ -1002,7 +1017,8 @@ vilket kan leda oss till en felaktig slutsats.
     för att bedöma behandlingseffekten
 -   I dessa fall finns `beroende` mellan observationerna i de olika
     grupperna.
--   Par om 2? Går ofta att utgå från `differenser`:
+
+Par om 2? Går ofta att utgå från `differenser`:
     $\delta_i = x_{i2} - x_{i1}$
 
 ##  {background-image="img/EB_V24_132.jpg" background-size="contain"}
@@ -1305,121 +1321,6 @@ ett 95% konfidensintervall 0,05 (1 - 0,95) eller 5%. Vi accepterar att
 vilket kan leda oss till en felaktig slutsats.
 :::
 
-# Stickprovsstorlek
-
-## Relevans?
-
--   Om vi på förhand kan styra hur många studieobjekt som inkluderas
-    -   Hur många möss behöver vi offra?
-    -   Hur många enkäter behöver vi skicka ut?
-    -   Är det någon idé att journalgranska om vi inte har fler än max
-        100 journaler?
--   INTE relevant för att i efterhand bortförklara varför vi inte
-    uppnådde statistisk signifikans!
--   Behövs sällan vid t ex registerstudier
-
-## Stickprovsstorlek
-
--   Grupperna är för små (för litet stickprov):
-    -   $H_0$ förkastas inte, även om en relevant skillnad finns (typ
-        I-fel).
-    -   Resultaten kan inte användas för att säga att det finns någon
-        skillnad.
--   Grupperna är för stora:
-    -   Slöseri med resurser.
-    -   Studien kan visa skillnader som inte har någon praktisk
-        betydelse, kliniskt irrelevant.
-    -   Risk för lägre datakvalitet på grund av stor organisation?
-
-## Styrka
-
--   Du har en hypotes ($H_1$): det finns en skillnad i blodtryck mellan
-    överviktiga och normalviktiga.
--   Vad krävs för att förkasta $H_0$ (ingen skillnad)?
--   Vad man inte vill, är att det ska sluta med en kostsam, för
-    patienterna riskfylld, tidskrävande studie som inte fann något
-    intressant resultat.
-
-## Antalsberäkning
-
-för jämförelse av medelvärden
-
-![](img/power.png)
-
-## Exempel: medelvärde
-
--   Vi vill studera normalviktiga unga vuxna,
-    -   grupp 1 normalviktiga som barn,
-    -   grupp 2 överviktiga som barn
--   Fråga: samvarierar vikten som barn med blodtrycket som vuxen?
--   Hypotes: $H_0: \mu_1 = \mu_2; H_1: \mu_1 \neq \mu_2$
--   Hur många studiedeltagare behövs?
--   Du måste göra antaganden om den minsta skillnad du vill kunna hitta
-    samt variabiliteten.\
--   Kliniskt relevant skillnad = 10 mmHg diastolisk: $\Delta = 10$
--   Varians i population: $\sigma^2 = 10$
-    -   Vi antar att det är samma i båda grupperna
--   Bestäm signifikansnivå $\alpha = 0.05 \Rightarrow k_1 = 1.96$
--   styrka $1-\beta = 0.8 \Rightarrow k_2 = 0.84$
--   $n \geq 2 \sigma^2 \cdot \left( \frac{k_1+k_2}{\Delta}\right)^2 = 2 \cdot 10 \cdot \left( \frac{1.96 + 0.84}{10}\right)^2 = 1.568$
--   Minsta urvalsstorlek är 2 per grupp =\> 4 totalt
-
-::: fragment
-
-| $\alpha$ | k1   | $1- \beta$ (power) | k2   |
-|----------|------|--------------------|------|
-| 0.001    | 3.29 | 0.8                | 0.84 |
-| 0.01     | 2.58 | 0.9                | 1.28 |
-| 0.05     | 1.96 | 0.95               | 1.96 |
-|          |      | 0.99               | 2.33 |
-
-:::
-
-## 
-
--   Detta betyder att skillnaden i medelvärde måste vara minst 10 mellan
-    grupperna för att vi ska kunna förkasta $H_0$ med $n = 4$
--   Är den faktiska skillnaden mindre så krävs ett större stickprov
--   Anta $\Delta = 5$
--   $n \geq 2 \sigma^2 \cdot \left( \frac{k_1+k_2}{\Delta}\right)^2 = 2 \cdot 10 \cdot \left( \frac{1.96 + 0.84}{5}\right)^2 = 6,272$
--   krävs 7 per grupp (avrunda alltid uppåt!), dvs 14 totalt.
-
-## Exempel: Andel
-
--   Studentkåren vill skatta andelen missnöjda studenter vid Sahlgrenska
-    akademin.
--   Vill att ett 95 % konfidensintervall ska ha en bredd på 12
-    procentenheter.
-    -   en felmarginal (margin of error): $m = 0.06$
--   Anta 25 % är missnöjda: $p = 0.25$
--   $n = p(1-p) / SE^2(p)$
--   där $SE(p) = m/k_1 = 0.06/1.96 \approx 0.031$
--   $n = 0.25 (0.75)/0.031^2 \approx 200$
--   Vad betyder det?
-    -   Fråga 200 studenter?
-    -   Samla in 200 svar?
-
-## Exempel: Olika andelar
-
--   Vi är intresserade av andelen som återgår till arbete bland
-    canceröverlevare.
--   Två grupper, Grupp 1 vs Grupp 2 med andelar $p_1$ resp $p_2$
--   $H_0: p_1 = p_2; H_1: p_1 \neq p_2$
--   $\alpha = .05$
--   $1-\beta = .8$ (power)
--   Hur stort stickprov behövs för att detektera att andelen i grupp 1
-    är 60 % jmfrt med 40 % I grupp 2?
-
-## SPSS
-
-::: {layout-ncol="2"}
-![](img/image12.png)
-
-![](img/image13.png)
-:::
-
-Finns även flera på nätet, t ex
-[OpenEPI](http://www.openepi.com/Menu/OE_Menu.htm)
 
 # Multipla test
 
@@ -2417,39 +2318,6 @@ Försök annars omformulera frågeställningen!
 -   Restricted mean survival time (RMST) är ett alternativ som räknar
     medeltiden individer lever under en begränsad tid
 
-
-# Datastruktur
-
-## Innan analys: Organisera data
-
-I Excel, SPSS eller ett annat program
-
--   En variabel per kolumn
--   En individ (t.ex. patient) per rad
--   Ett variabelvärde per cell
--   Variabelnamn i första raden
-    -   Helst bara A-Z/a-z, siffror respektive "\_"
--   Inga tomma rader
--   Tom cell betyder saknad data (0 och saknad data är två olika saker)
--   Inga kommentarer i datafilen
-
-## ❌ Fel
-
-![](images/paste-4.png)
-
-## ✅ Rätt!
-
-![](images/paste-5.png)
-[Tidy data](https://vita.had.co.nz/papers/tidy-data.html) är et relevant kocept! 
-
-## Komplexa datakällor
-
-- Om du får många dataset från t ex kvalitetsregister och andra källor kan du behöva kombinera dessa
-- Undvik detta om du inte är taggad på en utmaning/har gott stöd av handledaren/har viss kännedom om datastrukturer 
-- Går till viss del i SPSS men kan motivera att välja t ex R istället?
-
----------------------------------------------
-
 ::: callout-important
 ## Viktigt!
 
@@ -2783,3 +2651,120 @@ Beräkna
 Oavsett vilken studieutformning som väljs kommer slutsatserna endast
 vara giltiga om du valde "rätt" kaniner att titta på!
 :::
+
+
+# Stickprovsstorlek
+
+## Relevans?
+
+-   Om vi på förhand kan styra hur många studieobjekt som inkluderas
+    -   Hur många möss behöver vi offra?
+    -   Hur många enkäter behöver vi skicka ut?
+    -   Är det någon idé att journalgranska om vi inte har fler än max
+        100 journaler?
+-   INTE relevant för att i efterhand bortförklara varför vi inte
+    uppnådde statistisk signifikans!
+-   Behövs sällan vid t ex registerstudier
+
+## Stickprovsstorlek
+
+-   Grupperna är för små (för litet stickprov):
+    -   $H_0$ förkastas inte, även om en relevant skillnad finns (typ
+        I-fel).
+    -   Resultaten kan inte användas för att säga att det finns någon
+        skillnad.
+-   Grupperna är för stora:
+    -   Slöseri med resurser.
+    -   Studien kan visa skillnader som inte har någon praktisk
+        betydelse, kliniskt irrelevant.
+    -   Risk för lägre datakvalitet på grund av stor organisation?
+
+## Styrka
+
+-   Du har en hypotes ($H_1$): det finns en skillnad i blodtryck mellan
+    överviktiga och normalviktiga.
+-   Vad krävs för att förkasta $H_0$ (ingen skillnad)?
+-   Vad man inte vill, är att det ska sluta med en kostsam, för
+    patienterna riskfylld, tidskrävande studie som inte fann något
+    intressant resultat.
+
+## Antalsberäkning
+
+för jämförelse av medelvärden
+
+![](img/power.png)
+
+## Exempel: medelvärde
+
+-   Vi vill studera normalviktiga unga vuxna,
+    -   grupp 1 normalviktiga som barn,
+    -   grupp 2 överviktiga som barn
+-   Fråga: samvarierar vikten som barn med blodtrycket som vuxen?
+-   Hypotes: $H_0: \mu_1 = \mu_2; H_1: \mu_1 \neq \mu_2$
+-   Hur många studiedeltagare behövs?
+-   Du måste göra antaganden om den minsta skillnad du vill kunna hitta
+    samt variabiliteten.\
+-   Kliniskt relevant skillnad = 10 mmHg diastolisk: $\Delta = 10$
+-   Varians i population: $\sigma^2 = 10$
+    -   Vi antar att det är samma i båda grupperna
+-   Bestäm signifikansnivå $\alpha = 0.05 \Rightarrow k_1 = 1.96$
+-   styrka $1-\beta = 0.8 \Rightarrow k_2 = 0.84$
+-   $n \geq 2 \sigma^2 \cdot \left( \frac{k_1+k_2}{\Delta}\right)^2 = 2 \cdot 10 \cdot \left( \frac{1.96 + 0.84}{10}\right)^2 = 1.568$
+-   Minsta urvalsstorlek är 2 per grupp =\> 4 totalt
+
+::: fragment
+
+| $\alpha$ | k1   | $1- \beta$ (power) | k2   |
+|----------|------|--------------------|------|
+| 0.001    | 3.29 | 0.8                | 0.84 |
+| 0.01     | 2.58 | 0.9                | 1.28 |
+| 0.05     | 1.96 | 0.95               | 1.96 |
+|          |      | 0.99               | 2.33 |
+
+:::
+
+## 
+
+-   Detta betyder att skillnaden i medelvärde måste vara minst 10 mellan
+    grupperna för att vi ska kunna förkasta $H_0$ med $n = 4$
+-   Är den faktiska skillnaden mindre så krävs ett större stickprov
+-   Anta $\Delta = 5$
+-   $n \geq 2 \sigma^2 \cdot \left( \frac{k_1+k_2}{\Delta}\right)^2 = 2 \cdot 10 \cdot \left( \frac{1.96 + 0.84}{5}\right)^2 = 6,272$
+-   krävs 7 per grupp (avrunda alltid uppåt!), dvs 14 totalt.
+
+## Exempel: Andel
+
+-   Studentkåren vill skatta andelen missnöjda studenter vid Sahlgrenska
+    akademin.
+-   Vill att ett 95 % konfidensintervall ska ha en bredd på 12
+    procentenheter.
+    -   en felmarginal (margin of error): $m = 0.06$
+-   Anta 25 % är missnöjda: $p = 0.25$
+-   $n = p(1-p) / SE^2(p)$
+-   där $SE(p) = m/k_1 = 0.06/1.96 \approx 0.031$
+-   $n = 0.25 (0.75)/0.031^2 \approx 200$
+-   Vad betyder det?
+    -   Fråga 200 studenter?
+    -   Samla in 200 svar?
+
+## Exempel: Olika andelar
+
+-   Vi är intresserade av andelen som återgår till arbete bland
+    canceröverlevare.
+-   Två grupper, Grupp 1 vs Grupp 2 med andelar $p_1$ resp $p_2$
+-   $H_0: p_1 = p_2; H_1: p_1 \neq p_2$
+-   $\alpha = .05$
+-   $1-\beta = .8$ (power)
+-   Hur stort stickprov behövs för att detektera att andelen i grupp 1
+    är 60 % jmfrt med 40 % I grupp 2?
+
+## SPSS
+
+::: {layout-ncol="2"}
+![](img/image12.png)
+
+![](img/image13.png)
+:::
+
+Finns även flera på nätet, t ex
+[OpenEPI](http://www.openepi.com/Menu/OE_Menu.htm)
