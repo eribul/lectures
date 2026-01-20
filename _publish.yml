@@ -1,0 +1,4 @@
+- source: laa110_stat.qmd
+  quarto-pub:
+    - id: 029feb7e-842d-4043-aab2-2e099a4c88ba
+      url: 'https://eribul.quarto.pub/medicinsk-statistik'
