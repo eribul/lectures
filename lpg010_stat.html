@@ -1398,7 +1398,7 @@ Spridning: (spännvidd) = Hur spridda värdena är från “centrum” = 2:a och
 <li>Exempel: medelvärdet har en <code>normalfördelning</code> för en normalfördelad variabel eller ett tillräckligt stort urval</li>
 </ul></li>
 </ul>
-<div class="quarto-layout-panel" data-layout-ncol="4" height="200">
+<div class="quarto-layout-panel" height="200" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
 <p><img data-src="img/EB_V24_122.png" style="filter: invert(1)"></p>
@@ -1757,7 +1757,7 @@ Spridning: (spännvidd) = Hur spridda värdena är från “centrum” = 2:a och
 <li><p>Vanliga antaganden:</p>
 <ul>
 <li>Kvantitativ variabel</li>
-<li>Fördelningen av stickprovsmedelvärdet är approximativt normal:</li>
+<li>Fördelningen av populationsmedelvärdet är approximativt normal:</li>
 </ul>
 <ol type="a">
 <li>den är normalfördelad redan i stickprovet</li>
@@ -2816,7 +2816,7 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Behöver du analysera sådan data rekommenderas t ex ANOVA för upprepade mätningar eller mixade modeller (mixed models; som också går under en rad andra namn). Detta bygger på att din handledare kan vägleda dig kring dessa metoder. Försök annars omformulera frågeställningen!</p>
+<p>Behöver du analysera sådan data rekommenderas t ex ANOVA för upprepade mätningar (Friedmans test om icke-parametriskt). För multippel regression finns till exempel också “mixade modeller” (mixed models; som också går under en rad andra namn) eller Generalized Estimating Equations (GEE). Mer avancerade metoder förutsätter dock att din handledare kan vägleda dig kring dessa eller att du själv har ett lite djupare intresse för statistisk modellering. Försök annars omformulera frågeställningen!</p>
 </div>
 </div>
 </div>
@@ -3004,6 +3004,9 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 <li>Medelvärdet kan vi dock inte beräkna om vi inte har komplett uppföljning</li>
 <li>Restricted mean survival time (RMST) är ett alternativ som räknar medeltiden individer lever under en begränsad tid</li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -3014,11 +3017,15 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 </div>
 <div class="callout-content">
 <ul>
-<li>Tänk på urvalsstorlek <code>innan</code> studien påbörjas</li>
+<li>Tänk på urvalsstorlek <code>innan</code> studien påbörjas
+<ul>
+<li>Anpassa antalet om du kan påverka</li>
+<li>Välj realistiska analysmetoder som håller för data du får men inte kan påverka</li>
+</ul></li>
 <li>Försök att ange så mycket som möjligt i <code>studieprotokollet</code> innan du börjar samla in och analysera data</li>
-<li>När du har data: <code>plotta/tabulera</code> alltid data</li>
+<li>När du har data: <code>plotta/tabulera</code> alltid data (explorativ dataanalys)</li>
 <li>Utvärdera <code>antaganden</code></li>
-<li>Inkludera/exkludera endast observationer (t ex outliers) på ett vetenskapligt korrekt sätt (vad nu det ska betyda …)</li>
+<li>Inkludera/exkludera endast observationer (t ex outliers) på ett vetenskapligt korrekt sätt</li>
 </ul>
 </div>
 </div>
@@ -3219,7 +3226,7 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 <li>“Guldstandard” för att fastställa orsakssamband/<code>kausalitet</code> (fortfarande inte enkelt…)</li>
 <li>Minskar (eliminerar?) påverkan av förväxlingsfaktorer (confounders) genom randomisering.
 <ul>
-<li>Behöver (kanske?) inte justera för förväxlingsfaktorer</li>
+<li>Behöver inte justera för förväxlingsfaktorer</li>
 <li>Förenklar de statistiska analyserna</li>
 </ul></li>
 <li>Blinding är ibland möjligt (kanske svårt vid kirurgi?)</li>
@@ -3374,7 +3381,7 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 <p>“Bäst för att studera effekterna av riskfaktorer på en utfall”</p>
 </blockquote>
 <ul>
-<li><code>Prospektiva</code> kohortstudier börjar med en grupp (kohort) friska deltagare och jämför exponerade mot icke exponerade =&gt; är de som är exponerade mer benägna att bli sjuka?</li>
+<li><code>Prospektiva</code> kohortstudier börjar med en grupp (kohort) deltagare och jämför exponerade mot icke exponerade =&gt; är de som är exponerade mer benägna att bli sjuka?</li>
 <li>Data kan samlas under studiens gång eller baseras på historiska data (register etc som då fortfarande kan ha haft en prostepktiv datainsamling då det begav sig).</li>
 <li><code>Ingen randomisering</code> av exponering/behandling.</li>
 <li>Effekter kan vara confounded (behandling given på grund av specifik indikation). Vad är då effekten av vad?</li>
@@ -3396,7 +3403,8 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 <ul>
 <li>Tiden från exponering till sjukdom kan vara mycket <strong>lång</strong>
 <ul>
-<li>Börjar röka som tonåring -&gt; hjärtsjukdom som vuxen; behandlas för leukemi som barn -&gt; påverkar fettfri kroppsmassa som vuxen</li>
+<li>Börjar röka som tonåring -&gt; hjärtsjukdom som vuxen</li>
+<li>behandlas för leukemi som barn -&gt; påverkar fettfri kroppsmassa som vuxen</li>
 </ul></li>
 </ul></li>
 <li>Sjukdomen är mycket <code>sällsynt</code>: antag 5/100 000. För att identifiera “tillräckligt” många fall (som krävs för statistisk styrka) kan det behövas en kohort på 1 000 000 deltagare</li>
@@ -3430,23 +3438,6 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 </section>
 <section id="section-37" class="slide level2" data-background-image="img/new_study_deisgn.png" data-background-size="contain">
 <h2></h2>
-</section>
-<section id="sist-men-inte-minst" class="slide level2">
-<h2>Sist men inte minst …</h2>
-
-<img data-src="images/paste-18.png" class="r-stretch"><div class="callout callout-caution callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Skit in, skit ut!</strong></p>
-</div>
-<div class="callout-content">
-<p>Oavsett vilken studieutformning som väljs kommer slutsatserna endast vara giltiga om du valde “rätt” kaniner att titta på!</p>
-</div>
-</div>
-</div>
 </section></section>
 <section>
 <section id="stickprovsstorlek" class="title-slide slide level1 center" data-number="17">
@@ -3565,6 +3556,7 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 <li>Anta <span class="math inline">\(\Delta = 5\)</span></li>
 <li><span class="math inline">\(n \geq 2 \sigma^2 \cdot \left( \frac{k_1+k_2}{\Delta}\right)^2 = 2 \cdot 10 \cdot \left( \frac{1.96 + 0.84}{5}\right)^2 = 6,272\)</span></li>
 <li>krävs 7 per grupp (avrunda alltid uppåt!), dvs 14 totalt.</li>
+<li>Räkna alltid med visst bortfall och att det är svårare än vad du tror att rekrytera! Försök sikta högre än minimum!</li>
 </ul>
 </section>
 <section id="exempel-andel" class="slide level2">
@@ -3610,6 +3602,23 @@ Vittinghoff. E.. Glidden. D.. Shiboski. S.. &amp; McCulloch. C. (2012). Chapter 
 </div>
 </div>
 <p>Finns även flera på nätet, t ex <a href="http://www.openepi.com/Menu/OE_Menu.htm">OpenEPI</a></p>
+</section>
+<section id="sist-men-inte-minst" class="slide level2">
+<h2>Sist men inte minst …</h2>
+
+<img data-src="images/paste-18.png" class="r-stretch"><div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Skit in, skit ut!</strong></p>
+</div>
+<div class="callout-content">
+<p>Oavsett vilken studieutformning som väljs kommer slutsatserna endast vara giltiga om du valde “rätt” kaniner att titta på!</p>
+</div>
+</div>
+</div>
 
 </section></section>
 

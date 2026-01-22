@@ -1423,7 +1423,7 @@ https://doi.org/10.1177/0363546514527409
 -   Vanliga antaganden:
 
     -   Kvantitativ variabel
-    -   Fördelningen av stickprovsmedelvärdet är approximativt normal:
+    -   Fördelningen av populationsmedelvärdet är approximativt normal:
 
     a.  den är normalfördelad redan i stickprovet
     b.  eller vi vet från andra sammanhang att den är normalfördelad
@@ -2169,8 +2169,7 @@ individ kräver andra typer av statistiska metoder.
 
 ::: callout-tip
 Behöver du analysera sådan data rekommenderas t ex ANOVA för upprepade
-mätningar eller mixade modeller (mixed models; som också går under en
-rad andra namn). Detta bygger på att din handledare kan vägleda dig kring dessa metoder. 
+mätningar (Friedmans test om icke-parametriskt). För multippel regression finns till exempel också "mixade modeller" (mixed models; som också går under en rad andra namn) eller Generalized Estimating Equations (GEE). Mer avancerade metoder förutsätter dock att din handledare kan vägleda dig kring dessa eller att du själv har ett lite djupare intresse för statistisk modellering. 
 Försök annars omformulera frågeställningen!
 :::
 
@@ -2318,16 +2317,20 @@ Försök annars omformulera frågeställningen!
 -   Restricted mean survival time (RMST) är ett alternativ som räknar
     medeltiden individer lever under en begränsad tid
 
+--------------
+
 ::: callout-important
 ## Viktigt!
 
--   Tänk på urvalsstorlek `innan` studien påbörjas
+-   Tänk på urvalsstorlek `innan` studien påbörjas 
+    - Anpassa antalet om du kan påverka
+    - Välj realistiska analysmetoder som håller för data du får men inte kan påverka
 -   Försök att ange så mycket som möjligt i `studieprotokollet` innan du
     börjar samla in och analysera data
--   När du har data: `plotta/tabulera` alltid data
+-   När du har data: `plotta/tabulera` alltid data (explorativ dataanalys)
 -   Utvärdera `antaganden`
 -   Inkludera/exkludera endast observationer (t ex outliers) på ett
-    vetenskapligt korrekt sätt (vad nu det ska betyda ...)
+    vetenskapligt korrekt sätt
 :::
 
 # Forskningsfrågan
@@ -2471,7 +2474,7 @@ ISBN-13: 9780195314496 DOI: 10.1093/acref/9780195314496.001.0001
         (fortfarande inte enkelt...)
     -   Minskar (eliminerar?) påverkan av förväxlingsfaktorer
         (confounders) genom randomisering.
-        -   Behöver (kanske?) inte justera för förväxlingsfaktorer
+        -   Behöver inte justera för förväxlingsfaktorer
         -   Förenklar de statistiska analyserna
     -   Blinding är ibland möjligt (kanske svårt vid kirurgi?)
 -   👎 **Nackdelar**
@@ -2577,7 +2580,7 @@ very infrequent diseases they are of limited utility
 
 > "Bäst för att studera effekterna av riskfaktorer på en utfall"
 
--   `Prospektiva` kohortstudier börjar med en grupp (kohort) friska
+-   `Prospektiva` kohortstudier börjar med en grupp (kohort)
     deltagare och jämför exponerade mot icke exponerade =\> är de som är
     exponerade mer benägna att bli sjuka?
 -   Data kan samlas under studiens gång eller baseras på historiska data
@@ -2604,9 +2607,8 @@ Resultatet av kohortstudier:
 
 -   `Prospektiva kohortstudier` kan ibland vara omöjliga att genomföra
     -   Tiden från exponering till sjukdom kan vara mycket **lång**
-        -   Börjar röka som tonåring -\> hjärtsjukdom som vuxen;
-            behandlas för leukemi som barn -\> påverkar fettfri
-            kroppsmassa som vuxen
+        -   Börjar röka som tonåring -\> hjärtsjukdom som vuxen
+        -   behandlas för leukemi som barn -\> påverkar fettfri kroppsmassa som vuxen
 -   Sjukdomen är mycket `sällsynt`: antag 5/100 000. För att identifiera
     "tillräckligt" många fall (som krävs för statistisk styrka) kan det
     behövas en kohort på 1 000 000 deltagare
@@ -2640,17 +2642,6 @@ Beräkna
 :::
 
 ##  {background-image="img/new_study_deisgn.png" background-size="contain"}
-
-## Sist men inte minst ...
-
-![](images/paste-18.png)
-
-::: callout-caution
-## Skit in, skit ut!
-
-Oavsett vilken studieutformning som väljs kommer slutsatserna endast
-vara giltiga om du valde "rätt" kaniner att titta på!
-:::
 
 
 # Stickprovsstorlek
@@ -2731,6 +2722,7 @@ för jämförelse av medelvärden
 -   Anta $\Delta = 5$
 -   $n \geq 2 \sigma^2 \cdot \left( \frac{k_1+k_2}{\Delta}\right)^2 = 2 \cdot 10 \cdot \left( \frac{1.96 + 0.84}{5}\right)^2 = 6,272$
 -   krävs 7 per grupp (avrunda alltid uppåt!), dvs 14 totalt.
+-   Räkna alltid med visst bortfall och att det är svårare än vad du tror att rekrytera! Försök sikta högre än minimum!
 
 ## Exempel: Andel
 
@@ -2768,3 +2760,14 @@ för jämförelse av medelvärden
 
 Finns även flera på nätet, t ex
 [OpenEPI](http://www.openepi.com/Menu/OE_Menu.htm)
+
+## Sist men inte minst ...
+
+![](images/paste-18.png)
+
+::: callout-caution
+## Skit in, skit ut!
+
+Oavsett vilken studieutformning som väljs kommer slutsatserna endast
+vara giltiga om du valde "rätt" kaniner att titta på!
+:::
